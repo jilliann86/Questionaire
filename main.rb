@@ -9,47 +9,37 @@ for i in 0..(file_data.length() - 2) do
     File.write(tempfile , "\n", mode: "a")
 end
 
-puts "1. What is your name?"
-name = gets
-File.write(tempfile, "Name: #{name}", mode: "a")
+questions = Array[
+    "1. What is your name?",
+    "2. What is your favorite food?",
+    "3. What is your favorite game?",
+    "4. What is your favorite thing about Solution Street?",
+    "5. Where are you from?",
+    "6. What is your favorite movie?",
+    "7. Where do you want to travel to?",
+    "8. Are you good at ping pong?",
+    "9. What is your favorite sport?",
+    "10. What do you want me to know about you?"
+]
 
-puts "Hello, #{name}"
+descriptions = Array[
+    "Name: ",
+    "Favorite Food: ",
+    "Favorite Game: ",
+    "Favorite Thing About Solution Street: ",
+    "Where you are from: ",
+    "Your favorite movie: ",
+    "Where you want to travel: ",
+    "If you are good at ping pong: ",
+    "Favorite Sport: ",
+    "Want me to know: "
+]
 
-puts "2. What is your favorite food?"
-food = gets
-File.write(tempfile, "Favorite Food: #{food}", mode: "a")
-
-puts "3. What is your favorite game?"
-game = gets
-File.write(tempfile, "Favorite Game: #{game}", mode: "a")
-
-puts "4. What is your favorite thing about Solution Street?"
-solutionStreet = gets
-File.write(tempfile, "Favorite Thing About Solution Street: #{solutionStreet}", mode: "a")
-
-puts "5. Where are you from?"
-whereFrom = gets
-File.write(tempfile, "Where you are from: #{whereFrom}", mode: "a")
-
-puts "6. What is your favorite movie?"
-movie = gets
-File.write(tempfile, "Your favorite movie: #{movie}", mode: "a")
-
-puts "7. Where do you want to travel to?"
-travel = gets
-File.write(tempfile, "Where you want to travel: #{travel}", mode: "a")
-
-puts "8. Are you good at ping pong?"
-pingpong = gets
-File.write(tempfile, "If you are good at ping pong: #{pingpong}", mode: "a")
-
-puts "9. What is your favorite sport?"
-sport = gets
-File.write(tempfile, "Favorite Sport: #{sport}", mode: "a")
-
-puts "10. What do you want me to know about you?"
-know = gets
-File.write(tempfile, "Want me to know: #{know}", mode: "a")
+for i in (0..questions.length() - 1) do
+    puts questions[i]
+    answer = gets
+    File.write(tempfile, descriptions[i] + answer, mode: "a")
+end
 
 File.write(tempfile, "\n", mode: "a")
 File.write(tempfile, "}", mode: "a")
